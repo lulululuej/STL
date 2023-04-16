@@ -1,6 +1,7 @@
 #include <iostream>
 #include <sstream>
 #include <fstream>
+#include <list>
 
 using namespace std;
 
@@ -65,6 +66,7 @@ istream& operator>>(istream& is, T&& data) {
     }
 }*/
 
+/*
 int main() {
     stringstream ss{};
     ss << "123a bc hello";
@@ -77,4 +79,41 @@ int main() {
     if(ss >> c >> c) cout << c << " ";
     ss.clear();
     if(ss >> str) cout << str << " ";
+}
+*/
+
+/* Sequential Container */
+int main() {
+    /* array */
+    /*std::array<int, 5> data{};
+    for(unsigned i {}; i < data.size() ; i++) {
+        cin >> data.at(i);
+    }
+    for(auto&& i: data) {
+        cout << i << endl;
+    }*/
+    /* vector */
+    /*std::vector<int> data{};
+    int x{};
+    while (cin >> x)
+    {
+        data.push_back(x);
+    }
+    for(auto&& i: data) {
+        cout << i << endl;
+    }*/
+    /* list */
+    std::list<int> data{};
+    std::vector<int*> order{};
+    int x;
+    while (cin >> x)
+    {
+        data.push_back(x);
+        order.push_back(&data.back());
+    }
+    data.sort();
+    int i{0};
+    for(auto&& val: data) {
+        cout << "val= " << val << ", order=" << *order[i++] << endl;
+    }
 }
