@@ -21,6 +21,7 @@ template <typename T, unsigned chunk_size>
 deque<T, chunk_size>::deque(deque<T, chunk_size>&& other)
     : deque{}
 {
+    // ?
     *this = std::move(other);
 }
 
